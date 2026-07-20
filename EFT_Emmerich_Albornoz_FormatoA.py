@@ -67,3 +67,11 @@ def buscar_codigo(codigo,inventario):
             return True
     return False
 
+def actualizar_precio(codigo, nuevo_precio, inventario):
+    codigo = codigo.upper()
+    if buscar_codigo(codigo, inventario):
+        for cod in inventario:
+            inventario[cod][0] = nuevo_precio
+            return True
+    return False
+
