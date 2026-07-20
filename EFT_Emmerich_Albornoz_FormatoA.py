@@ -59,4 +59,11 @@ def busqueda_precio(p_min, p_max, juegos, inventario):
         lista.sort()
         for juego in lista:
             print(juego)
-    
+
+def buscar_codigo(codigo,inventario):
+    codigo = codigo.upper()
+    for cod in inventario:
+        if cod.upper() == codigo:
+            return True
+    return False
+
