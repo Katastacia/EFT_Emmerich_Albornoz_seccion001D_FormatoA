@@ -75,3 +75,19 @@ def actualizar_precio(codigo, nuevo_precio, inventario):
             return True
     return False
 
+def agregar_juego(codigo, titulo, plataforma, genero, clasificacion, multiplayer, editor, precio, stock, juegos, inventario):
+    if buscar_codigo(codigo, inventario):
+        return False
+    juegos[codigo.upper()] = [
+                            titulo,
+                            plataforma,
+                            genero,
+                            clasificacion,
+                            multiplayer,
+                            editor
+                            ]
+    inventario[codigo.upper()] = [
+                                precio,
+                                stock
+                                ]
+    return True
