@@ -101,3 +101,28 @@ def eliminar_juego(codigo, juegos, inventario):
                 del inventario[cod]
                 return True
     return False
+
+def validar_codigo(codigo):
+    return codigo.strip() != ""
+
+def validar_titulo(titulo):
+    return titulo.strip() != ""
+
+def validar_plataforma(plataforma):
+    return plataforma.strip() != ""
+
+def validar_genero(genero):
+    return genero.strip() != ""
+
+def validar_clasificacion(clasificacion):
+    return clasificacion.upper() in ["E", "T", "M"]
+
+def validar_editor(editor):
+    return editor.strip() != ""
+
+def validar_precio(precio):
+    return precio > 0
+
+def validar_stock(stock):
+    return stock >= 0
+
