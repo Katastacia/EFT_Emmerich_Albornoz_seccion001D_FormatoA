@@ -52,13 +52,13 @@ def busqueda_precio(p_min, p_max, juegos, inventario):
         stock = inventario[codigo][1]
         if p_min <= precio <= p_max and stock != 0:
             titulo = juegos[codigo][0]
-            lista.append(f"{titulo}---{codigo}")
+            lista.append(f"[{titulo}---{codigo}]")
     if len(lista) == 0:
         print("Error. No se logra encontrar algun juego.")
     else:
         lista.sort()
         for juego in lista:
-            print(juego)
+            print(f"Los juegos encontrados son {juego}")
 
 def buscar_codigo(codigo,inventario):
     codigo = codigo.upper()
@@ -178,7 +178,7 @@ def main():
                 continue
             if not validar_titulo(titulo):
                 print("Error. El titulo no puede estar vacio.")
-            elif buscar_codigo():
+            elif buscar_codigo(codigo, inventario):
                 print("Error. El codigo no puede existir ya ni estar vacio.")
             elif not validar_plataforma(plataforma):
                 print("Error. La plataforma no puede estar vacia ni tener espacios en blanco.")
@@ -194,6 +194,10 @@ def main():
                 print("Error. Numero entero mayor o igual a cero.")
             else:
                 multiplayer = True if multiplayer == "s" else False
+                if agregar_juego(codigo, titulo, plataforma, genero, clasificacion, multiplayer, editor, precio, stock, juegos, inventario):
+                    print("Juego Agregado")
+                else:
+                    print("Error. Juego no agregado con exito.")
         elif op == 5:
             codigo = input("Ingrese el codigo del juego: ")
             if eliminar_juego(codigo, juegos, inventario):
