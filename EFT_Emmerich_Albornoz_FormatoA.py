@@ -91,3 +91,13 @@ def agregar_juego(codigo, titulo, plataforma, genero, clasificacion, multiplayer
                                 stock
                                 ]
     return True
+
+def eliminar_juego(codigo, juegos, inventario):
+    codigo = codigo.upper()
+    if buscar_codigo(codigo, inventario):
+        for cod in list(inventario):
+            if cod.upper()== codigo:
+                del juegos[cod]
+                del inventario[cod]
+                return True
+    return False
