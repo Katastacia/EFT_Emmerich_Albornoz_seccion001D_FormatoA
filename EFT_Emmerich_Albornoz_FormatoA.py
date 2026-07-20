@@ -37,3 +37,26 @@ def leer_opcion():
                 print("Error. Ingrese una opcion entre 1 y 6.")
         except ValueError:
             print("Error. Ingrese un numero entero.")
+
+def stock_plataforma(plataforma, juegos, inventario):
+    total = 0
+    for codigo in juegos:
+        if juegos[codigo][1].capitalize() == plataforma.capitalize():
+            total += inventario[codigo][1]
+            print(f"Stock total {plataforma}:{total}")
+
+def busqueda_precio(p_min, p_max, juegos, inventario):
+    lista = []
+    for codigo in inventario:
+        precio = inventario[codigo][0]
+        stock = inventario[codigo][1]
+        if p_min <= precio <= p_max and stock != 0:
+            titulo = juegos[codigo][0]
+            lista.append(f"{titulo}---{codigo}")
+    if len(lista) == 0:
+        print("Error. No se logra encontrar algun juego.")
+    else:
+        lista.sort()
+        for juego in lista:
+            print(juego)
+    
