@@ -1,0 +1,4 @@
+Nombre = Emmerich Albornoz Cruz
+Seccion = 001D
+Carrera = Analista Programador
+Formato = A
